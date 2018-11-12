@@ -2,6 +2,8 @@
 
 include 'config.php';
 
+require 'body.php';
+
 try {
     $conn = new PDO("mysql:host=$domain;dbname=$database", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -11,13 +13,6 @@ catch(PDOException $e)
     echo "Connection failed: " . $e->getMessage();
     }
 
-
-// if (isset($_POST['submit'])) {
-
-// 	if (isset($_POST['price']) && !empty($_POST['price')) {
-// 		echo "test";
-// 	} 
-// }
 
     $alert = null;
 
@@ -61,7 +56,3 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
 
-
-
-
-include 'body.php';
