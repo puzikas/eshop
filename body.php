@@ -15,10 +15,10 @@
 		<br>
 		<?= $alert ?>
 		<div class="row">
-			<div class="col-9">
+			<div class="col-10">
 				<h3>Prekių sarašas:</h3>
 			</div>
-			<div class="col-3">
+			<div class="col-2">
 				<!-- Button trigger modal -->
 				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_product">
 					Pridėti naują prekę
@@ -72,45 +72,38 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="row">
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">ID</th>
+						<th scope="col">Pavadinimas</th>
+						<th scope="col">Aprašymas</th>
+						<th scope="col">Kaina</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach ($products as $product) { ?>
+						<tr>
+							<td><?= $product['id'] ?></td>
+							<td><?= $product['product'] ?></td>
+							<td><?= $product['description'] ?></td>
+							<td><?= $product['price'] ?></td>
+							<td class="text-right">
+								<a name="delete" class="btn btn-sm btn-danger" href="index.php?delete=<?= $product['id'] ?>">Delete</a>
+							</td>
+						</tr>
+					<?php } ?>
+				</tbody>
+			</table>
+		</div>
 	</div>
-	<div class="row">
-		<table class="table">
-			<thead>
-				<tr>
-				<th scope="col">ID</th>
-					<th scope="col">Pavadinimas</th>
-					<th scope="col">Aprašymas</th>
-					<th scope="col">Kaina</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<th scope="row">1</th>
-					<td>Mark</td>
-					<td>Otto</td>
-					<td>@mdo</td>
-				</tr>
-				<tr>
-					<th scope="row">2</th>
-					<td>Jacob</td>
-					<td>Thornton</td>
-					<td>@fat</td>
-				</tr>
-				<tr>
-					<th scope="row">3</th>
-					<td>Larry</td>
-					<td>the Bird</td>
-					<td>@twitter</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-</div>
 
 
 
-<pre>
-	<?php
+	<pre>
+		<?php
 
 
 	// 		// print_r($products);

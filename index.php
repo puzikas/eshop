@@ -47,10 +47,17 @@ if (isset($_POST['submit'])) {
 
 
 
-$stmt = $conn->query("SELECT product, description, price FROM products");
+if (isset($_GET['delete']) && !empty($_GET['delete']) ) {
+    $query = $conn->prepare("DELETE FROM products WHERE id = :id");
+    $query->execute([
+        'id' => $_GET['delete']
+    ]);
+}
+
+
+
+$stmt = $conn->query("SELECT id, product, description, price FROM products");
 $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-
 
 
 
